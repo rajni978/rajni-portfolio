@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+.bg-architectural-grid {
+  background-image:
+    linear-gradient(to right, rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.dark .bg-architectural-grid {
+  background-image:
+    linear-gradient(to right, rgba(139, 92, 246, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.065) 1px, transparent 1px);
+}
+
+.cert-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.dark .cert-card::after {
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(251, 191, 36, 0.09) 45%,
+    rgba(129, 140, 248, 0.14) 55%,
+    transparent 100%
+  );
+}
+
+.cert-card:hover::after {
+  left: 155%;
+}
