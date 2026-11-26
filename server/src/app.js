@@ -11,6 +11,8 @@ const app = express();
 app.set('trust proxy', 1);
 
 app.use(helmet());
+7
+console.log('CLIENT_URL:', JSON.stringify(process.env.CLIENT_URL));
 
 app.use(
   cors({
@@ -23,6 +25,7 @@ app.use(
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
+
 app.use(express.json({ limit: '20kb' }));
 
 app.get('/api/health', (_req, res) => {
